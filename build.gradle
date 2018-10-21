@@ -30,5 +30,5 @@ task clean(type: Delete) {
 
 ext {
     archLifecycleVersion = '1.1.1'
-    navigationVersion = '1.0.0-alpha04'
+    navigationVersion = '1.0.0-alpha06'
 }
