@@ -11,7 +11,7 @@ class SynergyActivity : AppCompatActivity() {
         setContentView(R.layout.synergy_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, SynergyFragment.newInstance())
+                    .replace(R.id.content_frame, SynergyFragment.newInstance())
                     .commitNow()
         }
     }
