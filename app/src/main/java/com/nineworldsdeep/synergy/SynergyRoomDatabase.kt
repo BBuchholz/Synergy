@@ -48,11 +48,28 @@ abstract class SynergyRoomDatabase : RoomDatabase() {
         }
 
         override fun doInBackground(vararg params: Void): Void? {
+
+            //just for dev, clear all data
             mDao.deleteAll()
+
+            //generate demo data for dev
             var synergyItem = SynergyItem("lst-s8-1", "List Name Goes Here", "Internal List", "[timestamp goes here]")
             mDao.insert(synergyItem)
-            synergyItem = SynergyItem("s8-2", "a list item", "Raw Text", "[timestamp goes here]")
-            mDao.insert(synergyItem)
+
+            var count: String
+            var itemIdPrefix = "s8-"
+            var itemId: String
+
+            for(i in 2..9){
+
+                count = i.toString()
+                itemId = itemIdPrefix + count
+
+                synergyItem = SynergyItem(itemId, "a list item", "Raw Text", "[timestamp goes here]")
+                mDao.insert(synergyItem)
+            }
+
+
             return null
         }
     }
