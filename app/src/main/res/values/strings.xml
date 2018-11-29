@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Synergy</string>
-    <string name="hint_word">Word...</string>
-    <string name="button_save">Save</string>
-    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="hint_word">Word…</string>
+    <string name="button_done">Done</string>
+    <string name="empty_item_value_discarded">Empty item value… discarded.</string>
+    <string name="enter_synergy_item_value_required">Enter synergy item value… (REQUIRED)</string>
 </resources>

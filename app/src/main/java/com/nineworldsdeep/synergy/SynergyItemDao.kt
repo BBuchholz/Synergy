@@ -13,6 +13,6 @@ interface SynergyItemDao {
     @Query("DELETE FROM synergy_item_table")
     fun deleteAll()
 
-    @Query("SELECT * FROM synergy_item_table ORDER BY synergy_item_id ASC")
+    @Query("SELECT * FROM synergy_item_table ORDER BY synergy_item_last_modified DESC")
     fun getAllItems(): LiveData<List<SynergyItem>>
 }

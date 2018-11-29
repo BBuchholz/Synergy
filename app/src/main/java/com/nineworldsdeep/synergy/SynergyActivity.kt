@@ -16,6 +16,7 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.widget.Toast
+import com.nineworldsdeep.synergy.ui.synergy.TimeStamp
 
 class SynergyActivity : AppCompatActivity() {
 
@@ -125,7 +126,7 @@ class SynergyActivity : AppCompatActivity() {
             val itemId = data.getStringExtra(NewSynergyItemActivity.EXTRA_ITEM_ID)
             val itemValue = data.getStringExtra(NewSynergyItemActivity.EXTRA_ITEM_VALUE)
             val itemType = data.getStringExtra(NewSynergyItemActivity.EXTRA_ITEM_TYPE)
-            val itemLastModified = "[timestamp goes here]"
+            val itemLastModified = TimeStamp.nowString()
 
             val newItem = SynergyItem(itemId,itemValue,itemType,itemLastModified)
 
@@ -135,7 +136,7 @@ class SynergyActivity : AppCompatActivity() {
 
             Toast.makeText(
                     applicationContext,
-                    R.string.empty_not_saved,
+                    R.string.empty_item_value_discarded,
                     Toast.LENGTH_LONG).show()
         }
     }

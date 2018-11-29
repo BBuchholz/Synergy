@@ -8,38 +8,47 @@ import android.content.Intent
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_new_synergy_item.*
+import java.util.*
 
 
 class NewSynergyItemActivity : AppCompatActivity() {
 
-    private var etItemId: EditText? = null
+    private var tvItemId: TextView? = null
     private var etItemValue: EditText? = null
     private var etItemType: EditText? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_synergy_item)
-        etItemId = findViewById(R.id.etItemId)
+        tvItemId = findViewById(R.id.tvItemId)
         etItemValue = findViewById(R.id.etItemValue)
         etItemType = findViewById(R.id.etItemType)
+
+        tvItemId?.text = UUID.randomUUID().toString()
+        etItemType?.hint = "Enter type (default is: [Raw Text])"
 
         val button = findViewById<Button>(R.id.btnSave)
         button.setOnClickListener {
 
             val replyIntent = Intent()
 
-            if (TextUtils.isEmpty(etItemId!!.text) ||
-                    TextUtils.isEmpty(etItemValue!!.text) ||
-                    TextUtils.isEmpty(etItemType!!.text)) {
+            if (TextUtils.isEmpty(etItemValue!!.text)) {
 
                 setResult(Activity.RESULT_CANCELED, replyIntent)
 
             } else {
 
-                val itemId = etItemId!!.text.toString()
+                val itemId = tvItemId!!.text.toString()
                 val itemValue = etItemValue!!.text.toString()
-                val itemType = etItemType!!.text.toString()
+                var itemType = "Raw Text"
+
+                if(!TextUtils.isEmpty(etItemType!!.text.toString().trim())){
+
+                    val trimmedVersion = etItemType!!.text.toString().trim()
+                    itemType = trimmedVersion.split(' ').joinToString(" ") { it.capitalize() }
+                }
 
                 replyIntent.putExtra(EXTRA_ITEM_ID, itemId)
                 replyIntent.putExtra(EXTRA_ITEM_VALUE, itemValue)

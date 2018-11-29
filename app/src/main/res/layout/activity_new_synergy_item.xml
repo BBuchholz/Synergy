@@ -3,24 +3,22 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/etItemId"
+    <TextView
+        android:id="@+id/tvItemId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
         android:padding="@dimen/small_padding"
         android:layout_marginBottom="@dimen/big_padding"
         android:layout_marginTop="@dimen/big_padding"
-        android:textSize="18sp" />
+        android:textSize="@dimen/synergy_item_meta_text_size" />
 
     <EditText
         android:id="@+id/etItemValue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
+        android:hint="@string/enter_synergy_item_value_required"
         android:inputType="textAutoComplete"
         android:padding="@dimen/small_padding"
         android:layout_marginBottom="@dimen/big_padding"
@@ -32,7 +30,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
         android:inputType="textAutoComplete"
         android:padding="@dimen/small_padding"
         android:layout_marginBottom="@dimen/big_padding"
@@ -44,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:text="@string/button_save"
+        android:text="@string/button_done"
         android:textColor="@color/buttonLabel" />
 
 </LinearLayout>

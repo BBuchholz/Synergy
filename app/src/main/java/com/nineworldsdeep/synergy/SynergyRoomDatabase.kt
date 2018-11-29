@@ -7,7 +7,8 @@ import android.content.Context
 import android.os.AsyncTask
 import android.arch.persistence.db.SupportSQLiteDatabase
 import android.support.annotation.NonNull
-
+import com.nineworldsdeep.synergy.ui.synergy.TimeStamp
+import java.util.*
 
 
 @Database(entities = arrayOf(SynergyItem::class), version = 1)
@@ -53,19 +54,18 @@ abstract class SynergyRoomDatabase : RoomDatabase() {
             mDao.deleteAll()
 
             //generate demo data for dev
-            var synergyItem = SynergyItem("lst-s8-1", "List Name Goes Here", "Internal List", "[timestamp goes here]")
+            var newItemId = UUID.randomUUID().toString()
+            var newItemTimeStamp = TimeStamp.nowString()
+            var synergyItem = SynergyItem(newItemId, "List Name Goes Here", "Internal List", newItemTimeStamp)
             mDao.insert(synergyItem)
-
-            var count: String
-            var itemIdPrefix = "s8-"
-            var itemId: String
 
             for(i in 2..9){
 
-                count = i.toString()
-                itemId = itemIdPrefix + count
 
-                synergyItem = SynergyItem(itemId, "a list item", "Raw Text", "[timestamp goes here]")
+                newItemId = UUID.randomUUID().toString()
+                newItemTimeStamp = TimeStamp.nowString()
+
+                synergyItem = SynergyItem(newItemId, "a list item", "Raw Text", newItemTimeStamp)
                 mDao.insert(synergyItem)
             }
 
